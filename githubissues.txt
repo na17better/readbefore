@@ -1,0 +1,63 @@
+git
+git init
+
+cd /d/myrepository/
+
+/*本地创建ssh-key*/
+ssh-keygen -t rsa -C "1072132349@qq.com"
+
+/*验证ssh是否成功*/
+ssh -T git@github.com
+
+/*上传本地文件：
+     在这之前要设置username和useremail
+*/
+
+git config --global user.name "na17better" 
+
+git config --global user.email "1072132349@qq.com"
+
+/*进入上传的仓库，添加远程地址*/
+git remote add origin git@github.com:na17better/**.git (**指你在github里的仓库名字)
+
+/*提交长传*/
+git add README
+
+git commit -m "**"
+
+git push origin master
+
+---------------------------------------------------------------------------------------------------------------------------
+
+/*问题解决---如何解决failed to push some refs to git*/
+
+Administrator@PC-20150110FGWU /K/cocos2d/yc (master)
+
+$ git push -u origin master
+
+To git@github.com:yangchao0718/cocos2d.git
+
+ ! [rejected]        master -> master (non-fast-forward)
+
+error: failed to push some refs to 'git@github.com:yangchao0718/cocos2d.git
+
+hint: Updates were rejected because the tip of your current branch is behin
+
+hint: its remote counterpart. Integrate the remote changes (e.g.
+
+hint: 'git pull ...') before pushing again.
+
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+解决办法---------------------------------------------------------------
+
+git pull --rebase origin master
+
+git push -u origin master
+
+
+
+
+
+
+
